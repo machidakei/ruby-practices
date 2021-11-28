@@ -22,7 +22,7 @@ shots.each_slice(2).with_index do |s, idx|
   frames << s if idx <= 8
 end
 frame_of_tenth_shot_including_nil = [shots[18], shots[19], shots[20], shots[21], shots[22], shots[23]]
-frame_of_tenth_shot = frame_of_tenth_shot_including_nil.map {|tenth_shot| tenth_shot.to_i}
+frame_of_tenth_shot = frame_of_tenth_shot_including_nil.map { |tenth_shot| tenth_shot.to_i }
 frames << frame_of_tenth_shot
 
 # frames => [[6, 3], [9, 0], [0, 3], [8, 2], [7, 3], [10, 0], [9, 1], [8, 0], [10, 0], [6, 4], [6, 4, 0, 0, 0, 0]]
