@@ -2,8 +2,8 @@
 
 class Table
   def print_table(array)
-    for i in 0..(array.length-1) do
-      for j in 0..(array[0].length-1) do
+    for i in 0..(array.length - 1) do
+      for j in 0..(array[0].length - 1) do
         print array[i][j].to_s.ljust(array.flatten.compact.max_by { |name| name.length }.length), "\t"
       end
       puts ""
