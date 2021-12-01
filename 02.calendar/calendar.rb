@@ -19,11 +19,14 @@ day_of_first_date = first_date.wday
 
 print "   " * day_of_first_date
 
-(first_date.day..last_date.day).each do |date|
-  print date.to_s + "  " if date <= 9
-  print date.to_s + " " if date >= 10
-  day_of_first_date += 1
-  if day_of_first_date % 7 == 0
+# (first_date.day..last_date.day).each do |date|
+(first_date..last_date).each do |date|
+  # print date.to_s + "  " if date <= 9
+  # print date.to_s + " " if date >= 10
+  print date.day.to_s.ljust(3)
+  # day_of_first_date += 1
+  # if day_of_first_date % 7 == 0
+  if date.saturday?
     print "\n" 
   end
 end
