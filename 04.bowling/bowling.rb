@@ -1,4 +1,5 @@
-# !/usr/bin/env ruby
+#!/usr/bin/env ruby
+# frozen_string_literal: true
 
 score = ARGV[0]
 scores = score.split(',')
@@ -34,18 +35,19 @@ frames.each_with_index do |frame, i|
              else
                frame.sum
              end
-            end
-if frames[8][0] == 10
-  if frames[9][0] == 10
-    point += 10 + 10 + frames[9][2]
-  else
-    point += 10 + frames[9][0] + frames[9][1]
-  end
-elsif frames[8].sum == 10
-  point += 10 + frames[9][0]
-else
-  point += frames[8].sum
+           end
 end
+point += if frames[8][0] == 10
+           if frames[9][0] == 10
+             10 + 10 + frames[9][2]
+           else
+             10 + frames[9][0] + frames[9][1]
+           end
+         elsif frames[8].sum == 10
+           10 + frames[9][0]
+         else
+           frames[8].sum
+         end
 point += frames[9].sum
 
 puts point
