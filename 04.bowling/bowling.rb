@@ -35,6 +35,8 @@ frames.each_with_index do |frame, i|
              else
                frame.sum
              end
+           else
+            next
            end
 end
 point += if frames[8][0] == 10
