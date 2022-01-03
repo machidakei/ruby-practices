@@ -20,6 +20,7 @@ if array >= 4
   horizontal_array = array.sort.each_slice(row_length + 1).map { |arr| arr }
 else
   horizontal_array = array.sort.each_slice(1).map { |arr| arr }
+end
 
 number_of_blank = row_length - array.length % 3
 number_of_blank.times do
