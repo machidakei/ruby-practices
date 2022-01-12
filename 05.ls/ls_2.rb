@@ -15,7 +15,7 @@ def print_table(elements_of_table)
   end
 end
 
-if options == true
+if ARGV.getopts("a") == true
   array = Dir.glob('*', File::FNM_DOTMATCH)
 else
   array = Dir.glob('*')
