@@ -15,11 +15,7 @@ def print_table(elements_of_table)
   end
 end
 
-if ARGV.getopts("a") == true
-  array = Dir.glob('*', File::FNM_DOTMATCH)
-else
-  array = Dir.glob('*')
-end
+array = Dir.glob('*', options["a"] ? File::FNM_DOTMATCH : 0 )
 
 row_length = array.length / 3
 row_length += 1 if array.length % 3 != 0
