@@ -19,7 +19,7 @@ array = Dir.glob('*')
 
 row_length = array.length / 3
 row_length += 1 if array.length % 3 != 0
-if options["r"] == true
+if options["r"]
   horizontal_array = array.sort.reverse.each_slice(row_length).to_a
 else
   horizontal_array = array.sort.each_slice(row_length).to_a
