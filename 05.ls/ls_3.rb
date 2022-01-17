@@ -15,7 +15,8 @@ def print_table(elements_of_table)
   end
 end
 
-array = options["r"] ?  Dir.glob('*').sort.reverse : Dir.glob('*').sort
+array = Dir.glob('*').sort
+array = array.reverse if options["r"]
 
 row_length = array.length / 3
 row_length += 1 if array.length % 3 != 0
