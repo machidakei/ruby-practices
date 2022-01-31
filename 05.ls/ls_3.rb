@@ -3,7 +3,7 @@
 
 require 'optparse'
 
-options = ARGV.getopts("r")
+options = ARGV.getopts('r')
 
 def print_table(elements_of_table)
   length = elements_of_table.flatten.compact.max_by(&:length).length
@@ -16,7 +16,7 @@ def print_table(elements_of_table)
 end
 
 array = Dir.glob('*').sort
-array = array.reverse if options["r"]
+array = array.reverse if options['r']
 
 row_length = array.length / 3
 row_length += 1 if array.length % 3 != 0

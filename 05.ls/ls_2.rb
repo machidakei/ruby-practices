@@ -3,7 +3,7 @@
 
 require 'optparse'
 
-options = ARGV.getopts("a")
+options = ARGV.getopts('a')
 
 def print_table(elements_of_table)
   length = elements_of_table.flatten.compact.max_by(&:length).length
@@ -15,7 +15,7 @@ def print_table(elements_of_table)
   end
 end
 
-array = Dir.glob('*', options["a"] ? File::FNM_DOTMATCH : 0 )
+array = Dir.glob('*', options['a'] ? File::FNM_DOTMATCH : 0)
 
 row_length = array.length / 3
 row_length += 1 if array.length % 3 != 0
