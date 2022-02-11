@@ -3,10 +3,10 @@
 
 require 'optparse'
 
-@options = ARGV.getopts('l')
+@option = ARGV.getopts('l')
 
 def count_lines(text)
-  lines = text.count("\n")
+  text.count("\n")
 end
 
 def count_words(text)
@@ -22,11 +22,20 @@ total_lines = 0
 total_words = 0
 total_bytesize = 0
 
-ARGV.each do |argument|
+ARGV.each_with_index do |argument, i|
   text = File.read(argument)
   total_lines += count_lines(text)
   total_words += count_words(text)
   total_bytesize += count_bytesize(text)
-  puts "\t#{count_lines(text)}\t#{count_words(text)}\t#{count_bytesize(text)} #{ARGV[0]}"
+  if @option
+    puts "\t#{count_lines(text)} #{ARGV[i]}"
+  else
+    puts "\t#{count_lines(text)}\t#{count_words(text)}\t#{count_bytesize(text)} #{ARGV[i]}"
+  end
 end
-puts "\t#{total_lines}\t#{total_words}\t#{total_bytesize} total" if ARGV.size > 1
+
+if @option
+  puts "\t#{total_lines} total" if ARGV.size > 1
+elsif ARGV.size > 1
+  puts "\t#{total_lines}\t#{total_words}\t#{total_bytesize} total"
+end
