@@ -1,10 +1,12 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# @options = ARGV.getopts('l')
+require 'optparse'
+
+@options = ARGV.getopts('l')
 
 def count_lines(text)
-  lines = text.count("\n") + 1
+  lines = text.count("\n")
 end
 
 def count_words(text)
