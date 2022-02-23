@@ -28,17 +28,17 @@ ARGV.each do |filename|
   total_words += count_words(text)
   total_bytesize += count_bytesize(text)
   if option['l']
-    puts "#{count_lines(text)}".rjust(8)+" #{filename}"
+    puts count_lines(text).to_s.rjust(8) + " #{filename}"
   else
-    puts "#{count_lines(text)}".rjust(8)+"#{count_words(text)}".rjust(8)+"#{count_bytesize(text)}".rjust(8)+" #{filename}"
+    puts count_lines(text).to_s.rjust(8) + count_words(text).to_s.rjust(8) + count_bytesize(text).to_s.rjust(8) + " #{filename}"
   end
 end
 
 if ARGV.size > 1
   if option['l']
-    puts "#{total_lines}".rjust(8)+" total" 
+    puts "#{total_lines.to_s.rjust(8)} total"
   else
-    puts "#{total_lines}".rjust(8)+"#{total_words}".rjust(8)+"#{total_bytesize}".rjust(8)+" total"
+    puts "#{total_lines.to_s.rjust(8)}#{total_words.to_s.rjust(8)}#{total_bytesize.to_s.rjust(8)} total"
   end
 end
 
@@ -50,9 +50,9 @@ if ARGV == []
     total_words += count_words(text)
     total_bytesize += count_bytesize(text)
     if option['l']
-      puts "#{total_lines}".rjust(8)
+      puts total_lines.to_s.rjust(8)
     else
-      puts "#{total_lines}".rjust(8)+"#{total_words}".rjust(8)+"#{total_bytesize}".rjust(8)
+      puts total_lines.to_s.rjust(8) + total_words.to_s.rjust(8) + total_bytesize.to_s.rjust(8)
     end
   end
 end
