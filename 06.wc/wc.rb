@@ -38,21 +38,18 @@ if ARGV.size > 1
   if option['l']
     puts "#{total_lines.to_s.rjust(8)} total"
   else
-    puts "#{total_lines.to_s.rjust(8)}#{total_words.to_s.rjust(8)}#{total_bytesize.to_s.rjust(8)} total"
+    puts total_lines.to_s.rjust(8) + total_words.to_s.rjust(8) + total_bytesize.to_s.rjust(8) + "total"
   end
 end
 
 if ARGV == []
-  inputs = readlines
-  inputs.each do |input|
-    text = input
-    total_lines += count_lines(text)
-    total_words += count_words(text)
-    total_bytesize += count_bytesize(text)
-    if option['l']
-      puts total_lines.to_s.rjust(8)
-    else
-      puts total_lines.to_s.rjust(8) + total_words.to_s.rjust(8) + total_bytesize.to_s.rjust(8)
-    end
+  text = $stdin.read
+  total_lines += count_lines(text)
+  total_words += count_words(text)
+  total_bytesize += count_bytesize(text)
+  if option['l']
+    puts total_lines.to_s.rjust(8)
+  else
+    puts total_lines.to_s.rjust(8) + total_words.to_s.rjust(8) + total_bytesize.to_s.rjust(8)
   end
 end
